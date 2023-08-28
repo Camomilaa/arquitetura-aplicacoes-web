@@ -6,11 +6,11 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 consign()
-  .include('src/routes')
-  .then('src/models')
-  .then('src/controllers')
+  .include('atividade-1/src/routes')
+  .then('atividade-1/src/models')
+  .then('atividade-1/src/controllers')
   .into(app);
 
 app.listen(3000, function(){
-  console.log('APP rodando na porta 3000');
+  console.log('APP rodando na porta 3000: http://localhost:3000 ');
 });
