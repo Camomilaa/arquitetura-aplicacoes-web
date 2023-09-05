@@ -3,12 +3,12 @@ var consign = require('consign');
 
 var app = express();
 app.set('view engine', 'ejs');
-app.set('views', 'atividade/src/views');
+app.set('views', 'src/views');
 
 consign()
-  .include('atividade/src/routes')
-  .then('atividade/src/models')
-  .then('atividade/src/controllers')
+  .include('src/routes')
+  .then('src/models')
+  .then('src/controllers')
   .into(app);
 
 app.listen(3000, function(){
