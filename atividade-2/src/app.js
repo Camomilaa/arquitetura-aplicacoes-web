@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -9,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Conectar ao banco de dados MongoDB
-mongoose.connect('mongodb://localhost/movies-db', {
+mongoose.connect(`mongodb+srv://camillaunfly:${process.env.BANCO}@movies.b8quj1z.mongodb.net/Movies?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -18,7 +19,7 @@ mongoose.connect('mongodb://localhost/movies-db', {
 app.use('/', movieRoutes);
 
 // Iniciar o servidor
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
